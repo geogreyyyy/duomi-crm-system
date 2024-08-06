@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jeecg.modules.mapper.TiktokUserInfoMapper">
+
+
+    <select id="getPage" resultType="org.jeecg.modules.entity.TiktokUserInfo">
+        select user_info.id,
+               user_info.unique_id,
+               user_info.nickname,
+               user_info.avatar_larger,
+               user_info.signature,
+               user_info.region,
+               user_info.create_time,
+               user_info.bio_link
+        from tiktok_user_info user_info
+    </select>
+</mapper>
