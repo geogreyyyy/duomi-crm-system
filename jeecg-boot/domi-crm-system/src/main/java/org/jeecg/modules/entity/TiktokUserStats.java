@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class TiktokUserStats implements Serializable {
     private static final long serialVersionUID = 1L;
     @TableId("user_id")
-    private Long userId;
+    private String userId;
     @TableField("follower_count")
     private Integer followerCount;
     @TableField("following_count")

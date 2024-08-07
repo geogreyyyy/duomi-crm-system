@@ -3,5 +3,20 @@
 <mapper namespace="org.jeecg.modules.mapper.TiktokCreatorUserMapper">
 
 
+    <select id="selectById" resultType="org.jeecg.modules.entity.TiktokCreatorUser">
+        select creator_oecuid,
+               units_sold_range,
+               selection_region,
+               med_gmv_revenue_range,
+               creator_bind_mcn_name,
+               industry_groups,
+               top_follower_gender,
+               top_follower_ages,
+               follower_cnt,
+               top_follower_age,
+               video_avg_view_cnt
+        from tiktok_creator_user_info
+        where user_id = #{userId}
 
+    </select>
 </mapper>

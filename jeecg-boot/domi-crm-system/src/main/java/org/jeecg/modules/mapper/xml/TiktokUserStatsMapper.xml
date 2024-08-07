@@ -3,14 +3,4 @@
 <mapper namespace="org.jeecg.modules.mapper.TiktokUserStatsMapper">
 
 
-    <select id="getPage" resultType="org.jeecg.modules.entity.TiktokUserStats">
-        select user_info.id,
-               user_info.unique_id,
-               user_info.nickname,
-               user_info.avatar_larger,
-               user_info.signature,
-               user_info.region,
-               user_info.create_time
-        from tiktok_user_info user_info
-    </select>
 </mapper>

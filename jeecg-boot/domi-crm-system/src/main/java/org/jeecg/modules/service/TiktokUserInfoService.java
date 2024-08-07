@@ -12,5 +12,5 @@ import org.jeecg.modules.vo.resp.TikTokUserListResp;
 public interface TiktokUserInfoService extends IService<TiktokUserInfo> {
     IPage<TikTokUserListResp> getPage(Page<TiktokUserInfo> page, QueryWrapper<TiktokUserInfo> queryWrapper);
     
-    TikTokUserInfoResp getUserInfoById(Long id);
+    TikTokUserInfoResp getUserInfoById(String id);
 }

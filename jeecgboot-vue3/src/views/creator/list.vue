@@ -4,10 +4,10 @@
     <BasicTable @register="registerTable" :rowSelection="rowSelection">
       <!--插槽:table标题-->
       <template #tableTitle>
-        <a-button type="primary" v-auth="'test:test_note:add'" @click="handleAdd" preIcon="ant-design:plus-outlined"> 新增</a-button>
-        <a-button type="primary" v-auth="'test:test_note:exportXls'" preIcon="ant-design:export-outlined" @click="onExportXls"> 导出</a-button>
-        <j-upload-button type="primary" v-auth="'test:test_note:importExcel'" preIcon="ant-design:import-outlined" @click="onImportXls"
-          >导入</j-upload-button
+        <!-- <a-button type="primary" v-auth="'tiktok:creator:add'" @click="handleAdd" preIcon="ant-design:plus-outlined"> 新增</a-button> -->
+        <a-button type="primary" v-auth="'tiktok:creator:exportXls'" preIcon="ant-design:export-outlined" @click="onExportXls"> 导出</a-button>
+        <!-- <j-upload-button type="primary" v-auth="'tiktok:creator:importExcel'" preIcon="ant-design:import-outlined" @click="onImportXls"
+          >导入</j-upload-button -->
         >
         <a-dropdown v-if="selectedRowKeys.length > 0">
           <template #overlay>
@@ -34,7 +34,8 @@
       <template v-slot:bodyCell="{ column, record, index, text }">
         <!-- 头像 -->
         <template v-if="column.dataIndex === 'avatarLarger'">
-          <Avatar :size="60" :srcset="text" />
+          <!-- <Avatar :size="60" :srcset="text" /> -->
+          <Image :width="50" :height="50" :src="text" fallback="	http://32303333.s21i.faiusr.com/4/ABUIABAEGAAgmYaesQYonKe4ygUw5wc4sQI.png" />
         </template>
         <!-- 主页挂载 -->
         <template v-if="column.dataIndex === 'bioLink'">
@@ -57,7 +58,7 @@
   import { list, deleteOne, batchDelete, getImportUrl, getExportUrl } from './TestNote.api';
   import { downloadFile } from '/@/utils/common/renderUtils';
   import { useUserStore } from '/@/store/modules/user';
-  import { Avatar } from 'ant-design-vue';
+  import { Image } from 'ant-design-vue';
   const queryParam = reactive<any>({});
   const checkedKeys = ref<Array<string | number>>([]);
   const userStore = useUserStore();

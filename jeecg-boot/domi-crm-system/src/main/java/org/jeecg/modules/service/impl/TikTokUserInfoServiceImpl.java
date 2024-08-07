@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.jeecg.modules.entity.TiktokCreatorUserInfo;
+import org.jeecg.modules.entity.TiktokCreatorUser;
 import org.jeecg.modules.entity.TiktokUserInfo;
 import org.jeecg.modules.entity.TiktokUserStats;
 import org.jeecg.modules.mapper.TiktokCreatorUserMapper;
@@ -36,10 +36,10 @@ public class TikTokUserInfoServiceImpl extends ServiceImpl<TiktokUserInfoMapper,
     @Override
     public IPage<TikTokUserListResp> getPage(Page<TiktokUserInfo> page, QueryWrapper<TiktokUserInfo> queryWrapper) {
         IPage<TiktokUserInfo> tiktokUserInfoIPage = super.page(page,queryWrapper);
-        List<Long> userIdList =
+        List<String> userIdList =
                 tiktokUserInfoIPage.getRecords().stream().map(TiktokUserInfo::getId).collect(Collectors.toList());
         List<TiktokUserStats> statsList = statsMapper.selectBatchIds(userIdList);
-        Map<Long,TiktokUserStats> statsMap = statsList.stream().collect(Collectors.toMap(TiktokUserStats::getUserId,v->v
+        Map<String,TiktokUserStats> statsMap = statsList.stream().collect(Collectors.toMap(TiktokUserStats::getUserId,v->v
                 ,(v1,v2) -> v1));
         IPage<TikTokUserListResp> tiktokUserInfoIPage1 = new Page<>();
         List<TikTokUserListResp> resps = tiktokUserInfoIPage.getRecords().stream().map(item->{
@@ -61,13 +61,13 @@ public class TikTokUserInfoServiceImpl extends ServiceImpl<TiktokUserInfoMapper,
     }
 
     @Override
-    public TikTokUserInfoResp getUserInfoById(Long id) {
+    public TikTokUserInfoResp getUserInfoById(String id) {
         TiktokUserInfo userInfo = super.getById(id);
         if (ObjectUtil.hasEmpty(userInfo)) {
             return null;
         }
         TiktokUserStats userStats = statsMapper.selectById(userInfo.getId());
-        TiktokCreatorUserInfo creatorUserInfo = creatorUserMapper.selectById(id);
+        TiktokCreatorUser creatorUserInfo = creatorUserMapper.selectById(id);
         TikTokUserInfoResp userInfoResp = new TikTokUserInfoResp();
         userInfoResp.setCreatorUserInfo(creatorUserInfo);
         userInfoResp.setUserInfo(userInfo);

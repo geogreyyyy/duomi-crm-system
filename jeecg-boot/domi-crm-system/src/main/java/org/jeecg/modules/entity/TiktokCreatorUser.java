@@ -2,25 +2,24 @@ package org.jeecg.modules.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Getter;
-import lombok.Setter;
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.Instant;
 
-@Getter
-@Setter
+@Data
+@ApiModel("创造者列表实体类")
 @TableName("tiktok_creator_user_info")
-public class TiktokCreatorUserInfo {
-    @Id
+public class TiktokCreatorUser {
     @TableField("user_id")
-    private Long id;
+    private String userId;
 
     @NotNull
     @TableField("creator_oecuid")
-    private Long creatorOecuid;
+    private String creatorOecuid;
 
     @TableField("is_authorized")
     private Integer isAuthorized;

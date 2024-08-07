@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public interface TiktokUserStatsMapper extends BaseMapper<TiktokUserStats> {
 
-    public IPage<TiktokUserInfo> getPage(Page<TiktokUserStats> page, @RequestParam("tiktokUserStats") TiktokUserStats tiktokUserStats);
 
 
 }

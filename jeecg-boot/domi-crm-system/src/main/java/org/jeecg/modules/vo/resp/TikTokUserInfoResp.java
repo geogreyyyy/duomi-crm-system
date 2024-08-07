@@ -2,7 +2,7 @@ package org.jeecg.modules.vo.resp;
 
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
-import org.jeecg.modules.entity.TiktokCreatorUserInfo;
+import org.jeecg.modules.entity.TiktokCreatorUser;
 import org.jeecg.modules.entity.TiktokUserInfo;
 import org.jeecg.modules.entity.TiktokUserStats;
 
@@ -11,5 +11,5 @@ import org.jeecg.modules.entity.TiktokUserStats;
 public class TikTokUserInfoResp {
     private TiktokUserInfo userInfo;
     private TiktokUserStats userStats;
-    private TiktokCreatorUserInfo creatorUserInfo;
+    private TiktokCreatorUser creatorUserInfo;
 }

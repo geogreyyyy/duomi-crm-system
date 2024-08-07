@@ -104,7 +104,18 @@ export const searchFormSchema: FormSchema[] = [
     label: 'Unique Id',
     field: 'uniqueId',
     component: 'Input',
-    //colProps: {span: 6},
+  },
+  {
+    field: 'haveEmail',
+    component: 'JSwitch',
+    label: '是否有邮箱',
+    colProps: { span: 6 },
+  },
+  {
+    field: 'haveBioLink',
+    component: 'JSwitch',
+    label: '是否主页挂载',
+    colProps: { span: 6 },
   },
   // {
   //   label: '性别',
@@ -121,7 +132,7 @@ export const formSchema: FormSchema[] = [
   {
     label: 'User Id',
     field: 'id',
-    component: 'Input',
+    component: 'JInput',
     componentProps: {
       disabled: true,
     },
@@ -146,6 +157,122 @@ export const formSchema: FormSchema[] = [
     label: '头像',
     field: 'avatarLarger',
     component: 'JImageUpload',
+    componentProps: {
+      disabled: true,
+    },
+  },
+];
+export const userStatsformSchema: FormSchema[] = [
+  {
+    label: '粉丝数',
+    field: 'followerCount',
+    component: 'Input',
+    componentProps: {
+      disabled: true,
+    },
+  },
+  {
+    label: '关注数',
+    field: 'followingCount',
+    component: 'Input',
+    componentProps: {
+      disabled: true,
+    },
+  },
+  {
+    label: '点赞数',
+    field: 'heart',
+    component: 'Input',
+    componentProps: {
+      disabled: true,
+    },
+  },
+  {
+    label: '视频数',
+    field: 'videoCount',
+    component: 'Input',
+    componentProps: {
+      disabled: true,
+    },
+  },
+  {
+    label: '朋友数',
+    field: 'friendCount',
+    component: 'Input',
+    componentProps: {
+      disabled: true,
+    },
+  },
+];
+export const creatorUserformSchema: FormSchema[] = [
+  {
+    label: '创作者Id',
+    field: 'creatorOecuid',
+    component: 'Input',
+    componentProps: {
+      disabled: true,
+    },
+  },
+  {
+    label: '粉丝年龄段',
+    field: 'unitsSoldRange',
+    component: 'Input',
+    componentProps: {
+      disabled: true,
+    },
+  },
+  {
+    label: '达人归属国家',
+    field: 'selectionRegion',
+    component: 'Input',
+    componentProps: {
+      disabled: true,
+    },
+  },
+  {
+    label: 'GMV',
+    field: 'medGmvRevenueRange',
+    component: 'Input',
+    componentProps: {
+      disabled: true,
+    },
+  },
+  {
+    label: '达人标签',
+    field: 'industryGroups',
+    component: 'Input',
+    componentProps: {
+      disabled: true,
+    },
+  },
+  {
+    label: '粉丝性别和百分比',
+    field: 'topFollowerGender',
+    component: 'Input',
+    componentProps: {
+      disabled: true,
+    },
+  },
+  {
+    label: '粉丝年龄 多年龄段',
+    field: 'topFollowerAges',
+    component: 'Input',
+    componentProps: {
+      disabled: true,
+    },
+  },
+  {
+    label: '粉丝主要年龄',
+    field: 'topFollowerAge',
+    component: 'Input',
+    componentProps: {
+      disabled: true,
+    },
+  },
+  {
+    label: '视频平均观看数量',
+    field: 'videoAvgViewCnt',
+    component: 'Input',
     componentProps: {
       disabled: true,
     },

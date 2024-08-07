@@ -5,12 +5,13 @@ const { createConfirm } = useMessage();
 
 enum Api {
   list = '/tiktok_user_info/list',
+  queryById = '/tiktok_user_info/queryById',
   save = '/test/testNote/add',
   edit = '/test/testNote/edit',
   deleteOne = '/test/testNote/delete',
   deleteBatch = '/test/testNote/deleteBatch',
   importExcel = '/test/testNote/importExcel',
-  exportXls = '/test/testNote/exportXls',
+  exportXls = '/tiktok_user_info/exportXls',
 }
 /**
  * 导出api
@@ -46,6 +47,14 @@ function extractLinkFromJSONString(jsonString) {
   // 如果没有找到匹配项，返回null或其他适当的值
   return null;
 }
+
+export const queryById = (params) =>
+  defHttp.get({ url: Api.queryById, params }).then((resp) => {
+    console.log('🚀 ~ defHttp.get ~ params:', params);
+    console.log('🚀 ~ defHttp.get ~ resp:', resp);
+
+    return resp;
+  });
 /**
  * 删除单个
  */

@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class TiktokUserInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     @TableField
-    private Long id;
+    private String id;
     @TableField("unique_id")
     private String uniqueId;
     @TableField("nickname")
