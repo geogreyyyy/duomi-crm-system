@@ -65,13 +65,13 @@ const setting: ProjectConfig = {
   // 头部配置
   headerSetting: {
     // 背景色
-    bgColor: HEADER_PRESET_BG_COLOR_LIST[4],
+    bgColor: HEADER_PRESET_BG_COLOR_LIST[1],
     // 固定头部
     fixed: true,
     // 是否显示顶部
     show: true,
     // 主题
-    theme: ThemeEnum.LIGHT,
+    theme: ThemeEnum.DARK,
     // 开启锁屏功能
     useLockPage: false,
     // 显示全屏按钮
@@ -87,7 +87,7 @@ const setting: ProjectConfig = {
   // 菜单配置
   menuSetting: {
     // 背景色
-    bgColor: SIDE_BAR_BG_COLOR_LIST[0],
+    bgColor: SIDE_BAR_BG_COLOR_LIST[3],
     // 是否固定住左侧菜单
     fixed: true,
     // 菜单折叠
@@ -155,7 +155,6 @@ const setting: ProjectConfig = {
     // 是否打开页面切换loading
     // Only open when enable=true
     openPageLoading: true,
-
     //是否打开页面切换顶部进度条
     openNProgress: true,
   },

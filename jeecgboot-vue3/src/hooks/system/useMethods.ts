@@ -29,15 +29,15 @@ export function useMethods() {
       return;
     }
     //update-begin---author:wangshuai---date:2024-04-18---for: 导出excel失败提示，不进行导出---
-    let reader = new FileReader()
-    reader.readAsText(data, 'utf-8')
+    let reader = new FileReader();
+    reader.readAsText(data, 'utf-8');
     reader.onload = async () => {
-      if(reader.result){
-        if(reader.result.toString().indexOf("success") !=-1){
+      if (reader.result) {
+        if (reader.result.toString().indexOf('success') != -1) {
           const { success, message } = JSON.parse(reader.result.toString());
           if (!success) {
-            createMessage.warning("导出失败，失败原因："+ message);
-          }else{
+            createMessage.warning('导出失败，失败原因：' + message);
+          } else {
             exportExcel(name, isXlsx, data);
           }
           return;
@@ -45,7 +45,7 @@ export function useMethods() {
       }
       exportExcel(name, isXlsx, data);
       //update-end---author:wangshuai---date:2024-04-18---for: 导出excel失败提示，不进行导出---
-    }
+    };
   }
 
   /**

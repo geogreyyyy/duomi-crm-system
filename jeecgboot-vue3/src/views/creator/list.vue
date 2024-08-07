@@ -5,10 +5,20 @@
       <!--插槽:table标题-->
       <template #tableTitle>
         <!-- <a-button type="primary" v-auth="'tiktok:creator:add'" @click="handleAdd" preIcon="ant-design:plus-outlined"> 新增</a-button> -->
-        <a-button type="primary" v-auth="'tiktok:creator:exportXls'" preIcon="ant-design:export-outlined" @click="onExportXls"> 导出</a-button>
+
+        <a-dropdown-button :loading="exportLoading" @click="clickExportExcel(5000)" v-auth="'tiktok:creator:exportXls'">
+          导出
+          <template #overlay>
+            <a-menu>
+              <a-menu-item key="1" @click="clickExportExcel(1000)">1000条</a-menu-item>
+              <a-menu-item key="2" @click="clickExportExcel(5000)">5000条</a-menu-item>
+              <a-menu-item key="3" @click="clickExportExcel(10000)">10000条</a-menu-item>
+            </a-menu>
+          </template>
+          <template #icon><DownOutlined /></template>
+        </a-dropdown-button>
         <!-- <j-upload-button type="primary" v-auth="'tiktok:creator:importExcel'" preIcon="ant-design:import-outlined" @click="onImportXls"
           >导入</j-upload-button -->
-        >
         <a-dropdown v-if="selectedRowKeys.length > 0">
           <template #overlay>
             <a-menu>
@@ -59,12 +69,24 @@
   import { downloadFile } from '/@/utils/common/renderUtils';
   import { useUserStore } from '/@/store/modules/user';
   import { Image } from 'ant-design-vue';
+  import { DownOutlined } from '@ant-design/icons-vue';
   const queryParam = reactive<any>({});
   const checkedKeys = ref<Array<string | number>>([]);
   const userStore = useUserStore();
   //注册model
   const [registerModal, { openModal }] = useModal();
   //注册table数据
+  const exportLoading = ref(false);
+  const menuData = ref([
+    {
+      label: '5000条',
+      key: '5000',
+    },
+    {
+      label: '10000条',
+      key: '10000',
+    },
+  ]);
   const { prefixCls, tableContext, onExportXls, onImportXls } = useListPage({
     tableProps: {
       title: 'TikTok达人信息列表',
@@ -97,9 +119,14 @@
       success: handleSuccess,
     },
   });
+  const [registerTable, { reload, getPaginationRef }, { rowSelection, selectedRowKeys }] = tableContext;
 
-  const [registerTable, { reload }, { rowSelection, selectedRowKeys }] = tableContext;
-
+  const clickExportExcel = async (limit) => {
+    const pageData = getPaginationRef();
+    const thisNum = pageData.current * pageData.pageSize - pageData.pageSize;
+    await onExportXls(thisNum, limit);
+    exportLoading.value = false;
+  };
   // 高级查询配置
   const superQueryConfig = reactive(superQuerySchema);
 

@@ -17,9 +17,9 @@
         <div class="aui-container">
           <div class="aui-form">
             <!-- <div class="aui-image"> -->
-              <!-- <div class="aui-image-text"> -->
-                <img :src="'http://32303333.s21i.faiusr.com/2/ABUIABACGAAgh8_hsQYo6K7EiwMw0gY40gY!700x700.jpg.webp'" />
-              <!-- </div> -->
+            <!-- <div class="aui-image-text"> -->
+            <img :src="'http://32303333.s21i.faiusr.com/2/ABUIABACGAAgh8_hsQYo6K7EiwMw0gY40gY!700x700.jpg.webp'" />
+            <!-- </div> -->
             <!-- </div> -->
             <div class="aui-formBox">
               <div class="aui-formWell">
@@ -195,7 +195,7 @@
   //账号登录表单字段
   const formData = reactive<any>({
     inputCode: '',
-    username: 'ceshi',
+    username: 'admin',
     password: '123456aA!',
   });
   //手机登录表单字段

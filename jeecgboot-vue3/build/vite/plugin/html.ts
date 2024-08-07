@@ -21,7 +21,7 @@ export function configHtmlPlugin(env: ViteEnv, isBuild: boolean) {
     inject: {
       // 修改模板html的标题
       data: {
-        title: VITE_GLOB_APP_TITLE+"1",
+        title: VITE_GLOB_APP_TITLE,
       },
       // 将app.config.js文件注入到模板html中
       tags: isBuild

@@ -28,10 +28,10 @@ public class ExportTikTokUser {
     private String creatorBindMcnName;
     @Excel(name = "创作者标签", width = 40)
     private String industryGroups;
-    @Excel(name = "粉丝性别和百分比", width = 40)
-    private String topFollowerGender;
-    @Excel(name = "粉丝年龄", width = 40)
-    private String topFollowerAge;
+//    @Excel(name = "粉丝性别和百分比", width = 40)
+//    private String topFollowerGender;
+//    @Excel(name = "粉丝年龄", width = 40)
+//    private String topFollowerAge;
     @Excel(name = "粉丝数量", width = 40)
     private String followerCnt;
     @Excel(name = "视频平均观看数量", width = 40)
