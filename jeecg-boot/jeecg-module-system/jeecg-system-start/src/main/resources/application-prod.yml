@@ -48,16 +48,24 @@ spring:
       max-file-size: 10MB
       max-request-size: 10MB
   mail:
-    host: smtp.163.com
-    username: jeecgos@163.com
-    password: ??
+    host: email-smtp.us-east-1.amazonaws.com
+    username: "AKIAQIJRSMZRGU5QDHNR"
+    password: "eyUjdVTS388lAKh4zxU96wXkrv8bErhtKFd6qu7c"
+    # 发送者邮箱
     properties:
       mail:
+        debug: true
         smtp:
           auth: true
           starttls:
             enable: true
             required: true
+  #          ssl:
+  #            enable: true
+  #          socketFactory:
+  #            port: 465
+  #            class: javax.net.ssl.SSLSocketFactory
+  #    protocol: smtp
   ## quartz定时任务,采用数据库方式
   quartz:
     job-store-type: jdbc
@@ -161,15 +169,15 @@ spring:
           slow-sql-millis: 5000
       datasource:
         master:
-          url: jdbc:mysql://localhost:3306/domi-crm-system?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
-          username: root
-          password: 123456
+          url: jdbc:mysql://192.168.110.26:3306/domi-crm-system?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+          username: 'domi-crm-system'
+          password: 'domi-crm-system-135711'
           driver-class-name: com.mysql.cj.jdbc.Driver
           # 多数据源配置
         multi-datasource1:
-          url: jdbc:mysql://localhost:3306/crm-data-crawl?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
-          username: root
-          password: 123456
+          url: jdbc:mysql://192.168.110.26:3306/crm-data-crawl?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+          username: 'domi-crm-system'
+          password: 'domi-crm-system-135711'
           driver-class-name: com.mysql.cj.jdbc.Driver
   #redis 配置
   redis:
@@ -190,7 +198,7 @@ mybatis-plus:
       table-underline: true
   configuration:
     # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
-    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     # 返回类型为Map,显示null对应的字段
     call-setters-on-nulls: true
 #jeecg专用配置
